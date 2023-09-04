@@ -3,4 +3,7 @@
 !*/
 
 !.gitignore
+!**/Makefile
 !**/*.cpp
+!**/*.hpp
+!**/*.h
