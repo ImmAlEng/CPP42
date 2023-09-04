@@ -2,7 +2,7 @@
 *
 
 !.gitignore
-!*/**/*.cpp
+!CPP-Module-00/**/*.cpp
 !*/**/*.hpp
 !*/**/Makefile
 !*/**/*.h
