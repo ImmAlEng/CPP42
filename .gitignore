@@ -1,6 +1,6 @@
 # Ignore all files except .cpp, .hpp, and Makefile
 *
-!**/*.cpp
-!**/*.hpp
-!**/Makefile
-!**/*.h
+!CPP*/ex*/*.cpp
+!CPP*/ex*/*.hpp
+!CPP*/ex*/Makefile
+!CPP*/ex*/*.h
