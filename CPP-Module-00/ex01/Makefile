@@ -6,15 +6,15 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/04 20:02:08 by iengels           #+#    #+#              #
-#    Updated: 2023/09/04 18:34:03 by iengels          ###   ########.fr        #
+#    Updated: 2023/09/04 18:39:41 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = megaphone.cpp
+SRC = *.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = megaphone
+NAME = crappy
 
 CC = c++
 
