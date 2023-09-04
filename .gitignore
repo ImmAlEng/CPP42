@@ -1,8 +1,6 @@
 # Ignore all files except .cpp, .hpp, .h, and Makefile
 *
+!*/
 
 !.gitignore
-!./CPP-Module-00/**
-!*/**/*.hpp
-!*/**/Makefile
-!*/**/*.h
+!CPP-Module-00/**
