@@ -1,3 +1,6 @@
-**/*.
-**/.o
-**/*.pdf
+# Ignore all files except .cpp, .hpp, and Makefile
+*
+!**/*.cpp
+!**/*.hpp
+!**/Makefile
+!**/*.h
