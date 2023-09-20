@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 19:59:58 by iengels           #+#    #+#             */
-/*   Updated: 2023/09/04 19:06:30 by iengels          ###   ########.fr       */
+/*   Created: 2023/09/17 15:41:29 by iengels           #+#    #+#             */
+/*   Updated: 2023/09/18 13:24:03 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "PhoneBook.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-    int i;
-    int j;
+    PhoneBook pb;
+    std::string str;
 
-    i = 0;
-    if (ac < 2)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    else
+    while (true)
     {
-        while (++i < ac)
+        std::cout << "Enter a command (ADD, SEARCH, EXIT)-$ ";
+		std::getline(std::cin, str);
+        if (std::cin.eof())
         {
-            j = 0;
-            while (av[i][j])
-                std::cout << (char)toupper(av[i][j++]);
+            std::cout << std::endl;
+            return 0;
         }
+        if (str == "EXIT")
+            break;
+        else if (str == "ADD")
+            pb.add();
+        else if (str == "SEARCH")
+            pb.search();
     }
-    std::cout << std::endl;
     return 0;
 }
