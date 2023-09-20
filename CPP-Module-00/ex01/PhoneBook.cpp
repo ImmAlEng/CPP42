@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 15:32:06 by iengels           #+#    #+#             */
-/*   Updated: 2023/09/18 13:09:58 by iengels          ###   ########.fr       */
+/*   Updated: 2023/09/20 18:20:34 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void PhoneBook::search(void)
     std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
     std::cout << "│     Index│First Name│ Last Name│ Nick Name│" << std::endl;
     std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
-    list();
+    this->list();
     std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
     std::cout << std::endl;
     std::cout << "Please Enter the index of the Contact you want to display" << std::endl;
@@ -140,7 +140,7 @@ void PhoneBook::list(void)
 
 std::string PhoneBook::allign(std::string str)
 {
-    unsigned int n = str.size();
+    unsigned int n = str.size();                                                                                                                                                                                        ;
     if (n > 10)
     {
         str.resize(10);
