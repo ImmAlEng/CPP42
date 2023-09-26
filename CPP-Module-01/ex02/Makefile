@@ -6,7 +6,7 @@
 #    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 21:34:24 by iengels           #+#    #+#              #
-#    Updated: 2023/09/20 21:34:31 by iengels          ###   ########.fr        #
+#    Updated: 2023/09/21 17:37:34 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC =	main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = brainz
+NAME = pointers
 
 CC = c++
 
