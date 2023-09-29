@@ -6,11 +6,14 @@
 #    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/21 17:40:31 by iengels           #+#    #+#              #
-#    Updated: 2023/09/21 17:40:48 by iengels          ###   ########.fr        #
+#    Updated: 2023/09/29 15:11:54 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	main.cpp
+SRC =	main.cpp	\
+		HumanA.cpp	\
+		HumanB.cpp	\
+		Weapon.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
