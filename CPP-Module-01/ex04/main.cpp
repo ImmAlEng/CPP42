@@ -6,53 +6,57 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 00:43:20 by iengels           #+#    #+#             */
-/*   Updated: 2023/09/30 01:39:30 by iengels          ###   ########.fr       */
+/*   Updated: 2023/09/30 02:13:20 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-int error(char *txt)
+int error(char *files)
 {
-    std::cout << "Error: " << txt << " could not be opened!" << std::endl;
+    std::cout << "Error: " << files << " could not be opened!" << std::endl;
     return 1;
 }
 
-int infile(std::string &str, char *txt)
+int reading(std::string &str, char *files)
 {
     std::ifstream in;
-    char temp;
+    int size;
 
-    in.open(txt);
+    in.open(files);
     if (in.fail())
-        return error(txt);
-    while (!in.eof() && in >> std::noskipws >> temp)
-        str += temp;
+        return error(files);
+    in.seekg(1, std::ios::end);
+	size = in.tellg();
+	str.resize(size);
+	in.seekg(0, std::ios::beg);
+	in.read(&str[0], size);
     in.close();
     return 0;
 }
 
-int outfile(std::string &str, char *txt, char **av)
+int writing(std::string &str, char *files, char **av)
 {
     std::ofstream out;
     int i;
     int length;
     int check;
 
-    out.open(txt);
+    i = 0;
+    out.open(files);
     if (out.fail())
-        return error(txt);
+        return error(files);
     length = (int)str.length();
-    std::cout << length << std::endl;
     while (i < length)
     {
         check = str.find(av[2], i);
-        if (check != std::string::npos && check == i)
+        if (check != (int)std::string::npos && check == i)
         {
             out << av[3];
             i += std::string(av[2]).length() - 1;
         }
+        else if (str[i] == '\0');
         else
             out << str[i];
         i++;
@@ -63,14 +67,14 @@ int outfile(std::string &str, char *txt, char **av)
 
 int main(int ac, char **av)
 {
-    std::string str;
+    std::string temp;
 
     if (ac != 4)
     {
         std::cout << "Usage: ./edit <file> old_word new_word" << std::endl;
         return 1;
     }
-    if (infile(str, av[1]) || outfile(str, av[1], av))
+    if (reading(temp, av[1]) || writing(temp, av[1], av))
         return 1;
     return 1;
 }
