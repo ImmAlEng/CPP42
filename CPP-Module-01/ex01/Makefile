@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 19:06:03 by iengels           #+#    #+#              #
-#    Updated: 2023/09/20 21:14:55 by iengels          ###   ########.fr        #
+#    Updated: 2023/09/30 02:02:55 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = morebrainz
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 

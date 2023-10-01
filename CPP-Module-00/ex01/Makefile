@@ -6,7 +6,7 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/04 20:02:08 by iengels           #+#    #+#              #
-#    Updated: 2023/09/18 12:16:25 by iengels          ###   ########.fr        #
+#    Updated: 2023/09/30 02:02:40 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = eddie
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 

@@ -5,19 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/21 17:40:31 by iengels           #+#    #+#              #
-#    Updated: 2023/09/30 02:03:10 by iengels          ###   ########.fr        #
+#    Created: 2023/09/30 23:59:50 by iengels           #+#    #+#              #
+#    Updated: 2023/10/01 13:29:23 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	main.cpp	\
-		HumanA.cpp	\
-		HumanB.cpp	\
-		Weapon.cpp
+		Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = violence
+NAME = base
 
 CC = c++
 
