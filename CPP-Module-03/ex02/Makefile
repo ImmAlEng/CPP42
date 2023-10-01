@@ -6,17 +6,18 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/02 00:48:12 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 00:54:15 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	ClapTrap.cpp	\
 		ScavTrap.cpp	\
+		FragTrap.cpp	\
 		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = boring
+NAME = frag
 
 CC = c++
 

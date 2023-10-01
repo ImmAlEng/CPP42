@@ -6,19 +6,15 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/02 00:54:07 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 00:56:28 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	ClapTrap.cpp	\
-		ScavTrap.cpp	\
-		FragTrap.cpp	\
-		DiamondTrap.cpp	\
-		main.cpp
+SRC =	main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = diamond
+NAME = abstract
 
 CC = c++
 

@@ -6,7 +6,7 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/02 00:44:10 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 00:54:34 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC =	ClapTrap.cpp	\
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = boring
+NAME = clap
 
 CC = c++
 
