@@ -6,7 +6,7 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:07:15 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/01 22:43:43 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/01 19:49:41 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ Fixed::Fixed(const int value) :value(conversion(value, fractional))
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & copy)
+Fixed::Fixed(Fixed const & fix)
 {
-    std::cout << "copy constructor called" << std::endl;
-    *this = copy;
+    std::cout << "fix constructor called" << std::endl;
+    *this = fix;
 }
 
-Fixed& Fixed::operator=(const Fixed& copy) 
+Fixed& Fixed::operator=(const Fixed& fix) 
 {
-    std::cout << "copy assignment operator called" << std::endl;
-    this->value = copy.getRawBits();
+    std::cout << "fix assignment operator called" << std::endl;
+    this->value = fix.getRawBits();
     return (*this);
 }
 
