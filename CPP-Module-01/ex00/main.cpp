@@ -6,7 +6,7 @@
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:28:41 by iengels           #+#    #+#             */
-/*   Updated: 2023/09/20 20:14:54 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/02 13:55:10 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ Zombie* newZombie( std::string name );
 
 int main(void)
 {
-    Zombie *z1 = newZombie("Immanuel");
+    Zombie *z1 = newZombie("Test1");
     z1->announce();
-    randomChump("Yen");
+    randomChump("Randomchump");
     delete z1;
     return 0;
 }

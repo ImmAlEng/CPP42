@@ -6,25 +6,25 @@
 #    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/30 16:56:01 by iengels           #+#    #+#              #
-#    Updated: 2023/09/30 20:23:55 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 22:30:05 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	Harl.cpp	\
 		main.cpp
 
-OBJ = $(SRC:.cpp=.o)
-
 NAME = harlfilter
 
-CC = c++
+OBJ = $(SRC:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+
+CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

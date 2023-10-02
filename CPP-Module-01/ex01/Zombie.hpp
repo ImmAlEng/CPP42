@@ -6,7 +6,7 @@
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:55:55 by iengels           #+#    #+#             */
-/*   Updated: 2023/09/20 21:20:50 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/02 20:18:27 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ class Zombie
         void    give_name(std::string name);
         void    announce(void);
 };
+
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

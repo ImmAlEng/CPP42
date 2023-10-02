@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/30 23:59:50 by iengels           #+#    #+#              #
-#    Updated: 2023/10/01 22:28:36 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 22:11:22 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,14 @@ OBJ = $(SRC:.cpp=.o)
 
 NAME = bsp
 
-CC = c++
+CXX = c++
 
 CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

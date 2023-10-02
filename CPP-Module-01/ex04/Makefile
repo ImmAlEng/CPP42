@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/30 01:12:10 by iengels           #+#    #+#              #
-#    Updated: 2023/09/30 02:03:22 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 22:20:20 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,18 +24,18 @@
 
 SRC =	main.cpp
 
-OBJ = $(SRC:.cpp=.o)
-
 NAME = edit
 
-CC = c++
+OBJ = $(SRC:.cpp=.o)
+
+CXX = c++
 
 CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 19:06:03 by iengels           #+#    #+#              #
-#    Updated: 2023/09/30 02:02:55 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/02 22:14:20 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,18 @@ SRC =	Zombie.cpp		\
 		zombieHorde.cpp	\
 		main.cpp
 
-OBJ = $(SRC:.cpp=.o)
-
 NAME = morebrainz
 
-CC = c++
+OBJ = $(SRC:.cpp=.o)
+
+CXX = c++
 
 CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

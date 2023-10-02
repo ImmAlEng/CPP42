@@ -6,7 +6,7 @@
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:39:45 by iengels           #+#    #+#             */
-/*   Updated: 2023/09/29 15:21:38 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/02 22:19:10 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ Weapon::Weapon(std::string type) :type(type)
 {
 }
 
-Weapon::Weapon(void) {};
+Weapon::Weapon(void) {}
 
-Weapon::~Weapon(void) {};
+Weapon::~Weapon(void) {}
 
 const std::string& Weapon::getType()  const
 {
