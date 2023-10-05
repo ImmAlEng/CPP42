@@ -6,12 +6,13 @@
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 00:43:20 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/02 22:20:38 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/05 16:55:06 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 int error(char *files)
 {
@@ -19,14 +20,14 @@ int error(char *files)
     return 1;
 }
 
-int reading(std::string &str, char *files)
+int reading(std::string &str, char *name)
 {
     std::ifstream in;
     int size;
 
-    in.open(files);
+    in.open(name);
     if (in.fail())
-        return error(files);
+        return error(name);
     in.seekg(1, std::ios::end);
 	size = in.tellg();
 	str.resize(size);
@@ -36,17 +37,19 @@ int reading(std::string &str, char *files)
     return 0;
 }
 
-int writing(std::string &str, char *files, char **av)
+int writing(std::string &str, char *name, char **av)
 {
     std::ofstream out;
     int i;
     int length;
     int check;
+    std::string temp = std::string(name) + ".replace";
+    const char *outfile = temp.c_str();
 
     i = 0;
-    out.open(files);
+    out.open(outfile);
     if (out.fail())
-        return error(files);
+        return error((char*)outfile);
     length = (int)str.length();
     while (i < length)
     {

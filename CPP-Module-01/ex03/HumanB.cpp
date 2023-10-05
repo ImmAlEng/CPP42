@@ -6,13 +6,13 @@
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:39:30 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/02 22:18:56 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/05 16:22:12 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) :name(name)
+HumanB::HumanB(std::string name) :weapon(NULL), name(name)
 {
     std::cout << "HumanB " << name << " created" << std::endl;
 }
@@ -26,10 +26,14 @@ HumanB::~HumanB(void)
 
 void HumanB::attack()
 {
-    std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+    if (!weapon)
+        std::cout << name << " attacks with no weapon!" << std::endl;
+
+    else
+        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-    this->weapon = weapon;
+    this->weapon = &weapon;
 }
