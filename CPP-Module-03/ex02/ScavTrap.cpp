@@ -6,13 +6,13 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 12:22:48 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/03 19:46:41 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/03 19:02:50 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) :ClapTrap()
+ScavTrap::ScavTrap(void)
 {
     hitpoints = 100;
     energypoints = 50;

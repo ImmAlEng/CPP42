@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:01:51 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/03 17:33:37 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/02 00:47:51 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/03 21:19:27 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-#define CLAPTRAP_H
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-#include <iostream>
+#include "ClapTrap.hpp"
 
 #pragma once
 
-class ClapTrap
+class ScavTrap: public ClapTrap
 {
-    protected:
-        std::string name;
-        int hitpoints;
-        int energypoints;
-        int attackpoints;
-        
     public:
-        ClapTrap(void);
-        ClapTrap(std::string name);
-        ClapTrap( ClapTrap const& copy );
-        ~ClapTrap();
+        ScavTrap(void);
+        ScavTrap(std::string name);
+        ScavTrap(ScavTrap const& copy);
+        ~ScavTrap();
 
-        ClapTrap &operator = (const ClapTrap &copy);
+        ScavTrap& operator = (ScavTrap const& copy);
 
+        void guardGate( void );
         void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
 };
 
 #endif

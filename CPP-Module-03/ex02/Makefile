@@ -6,7 +6,7 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/02 00:54:15 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/03 17:12:15 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,18 +15,18 @@ SRC =	ClapTrap.cpp	\
 		FragTrap.cpp	\
 		main.cpp
 
-OBJ = $(SRC:.cpp=.o)
-
 NAME = frag
 
-CC = c++
+OBJ = $(SRC:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CXX = c++
+
+CPPFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)
