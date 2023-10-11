@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:23:32 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/03 21:24:52 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/05 18:30:31 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ FragTrap::FragTrap(void) :ClapTrap()
 
 FragTrap::FragTrap(std::string name) :ClapTrap(name)
 {
-    name = name;
     hitpoints = 100;
     energypoints = 100;
     attackpoints = 30;

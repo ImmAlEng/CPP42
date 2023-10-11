@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:23:32 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/03 21:24:52 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/11 21:15:27 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ FragTrap::~FragTrap()
 
 FragTrap &FragTrap::operator=(FragTrap const &copy)
 {
-    std::cout << "FragTrap assignment operatot called" << std::endl;
+    std::cout << "FragTrap assignment operator called" << std::endl;
     name = copy.name;
     hitpoints = copy.hitpoints;
     energypoints = copy.energypoints;
