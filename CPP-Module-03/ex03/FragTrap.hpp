@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 11:47:40 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/10 00:15:39 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/03 19:24:03 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/03 21:18:31 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 #pragma once
-class DiamondTrap: public ScavTrap, public FragTrap
-{
-	private:
-		std::string	name;
-	public:
-		DiamondTrap(void);
-		~DiamondTrap();
 
-		virtual ~DiamondTrap();
-		
-		void whoAmI();
+class FragTrap: public ClapTrap
+{
+    public:
+        FragTrap( void );
+        FragTrap(std::string name);
+        FragTrap(FragTrap const& copy);
+        ~FragTrap();
+
+        FragTrap& operator = (FragTrap const& copy);
+
+        void highFivesGuys(void);
 };
 
 #endif
