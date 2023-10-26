@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:30:39 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/26 18:04:22 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/26 13:01:48 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/26 13:04:30 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIME_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include <iostream>
+#include "Animal.hpp"
 
-#pragma once
-
-class Animal
+class Cat: public Animal
 {
-    protected:
-        std::string type;
-
     public:
-        Animal(void);
-        Animal(std::string type);
-        Animal(Animal const &copy);
-        ~Animal();
+        Cat(void);
+        ~Cat();
+        Cat(Cat const &copy);
 
-        Animal &operator=(Animal const &copy);
-
-        virtual void makeSound(void) const;
+        void makeSound(void);
 };
 
 #endif
