@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 08:44:59 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 08:49:31 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/29 15:03:33 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 class MateriaSource : public IMateriaSource
 {
+    private:
+        AMateria *materiabook[4];
     public:
         MateriaSource(void);
         ~MateriaSource();

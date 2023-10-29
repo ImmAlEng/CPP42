@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/29 10:54:48 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/29 16:03:19 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,6 @@ SRC =	AMateria.cpp		\
 		Character.cpp		\
 		Cure.cpp			\
 		Ice.cpp				\
-		ICharacter.cpp		\
-		IMateriaSource.cpp	\
 		main.cpp			\
 		MateriaSource.cpp
 
@@ -26,7 +24,7 @@ NAME = interfaces
 
 CXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -g -Wall -Wextra -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
