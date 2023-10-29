@@ -6,7 +6,7 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:39:39 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/28 22:46:58 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/29 00:35:35 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,4 @@ Animal &Animal::operator=(Animal const &copy)
 const std::string Animal::getType(void) const
 {
     return (type);
-}
-
-void Animal::makeSound(void)const
-{
-    std::cout << "Default animal sound" << std::endl;
 }

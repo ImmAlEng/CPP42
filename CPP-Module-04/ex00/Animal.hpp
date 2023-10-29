@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:30:39 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/26 18:04:22 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/28 22:46:53 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
-#define ANIME_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
@@ -19,18 +19,18 @@
 
 class Animal
 {
-    protected:
-        std::string type;
+protected:
+    std::string type;
 
-    public:
-        Animal(void);
-        Animal(std::string type);
-        Animal(Animal const &copy);
-        ~Animal();
+public:
+    Animal(void);
+    Animal(std::string type);
+    Animal(Animal const &copy);
+    virtual ~Animal();
 
-        Animal &operator=(Animal const &copy);
-
-        virtual void makeSound(void) const;
+    Animal &operator=(Animal const &copy);
+    const std::string getType(void) const;
+    virtual void makeSound(void)const;
 };
 
 #endif

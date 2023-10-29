@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 22:22:04 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:37 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/26 12:51:52 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/28 23:27:49 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-int main()
+#include "Animal.hpp"
+#include "Brain.hpp"
+#pragma once
+
+class Dog: public Animal
 {
-    const Animal *Cats_Dogs[100];
-    for (int i = 0; i < 100; i++)
-    {
-        if (i < 50)
-            Cats_Dogs[i] = new Cat();
-        else
-            Cats_Dogs[i] = new Dog();
-    }
-    for (int i = 0; i < 100; i++)
-        delete Cats_Dogs[i];
-    // const Animal Default; //Animal class is now abstract
-}
+    private:
+        Brain *DogBrain;
+    public:
+        Dog(void);
+        ~Dog();
+        Dog(Dog const &copy);
+
+        Dog& operator = (Dog const &copy);
+        void makeSound(void) const;
+};
+
+#endif
