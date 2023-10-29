@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 22:22:04 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:37 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/28 23:03:47 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/28 23:23:27 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-int main()
+#include <iostream>
+#pragma once
+
+class Brain
 {
-    const Animal *Cats_Dogs[100];
-    for (int i = 0; i < 100; i++)
-    {
-        if (i < 50)
-            Cats_Dogs[i] = new Cat();
-        else
-            Cats_Dogs[i] = new Dog();
-    }
-    for (int i = 0; i < 100; i++)
-        delete Cats_Dogs[i];
-    // const Animal Default; //Animal class is now abstract
-}
+    private:
+        std::string ideas[100];
+    public:
+        Brain(void);
+        ~Brain();
+        Brain(Brain const& copy);
+
+        Brain& operator=(Brain const &copy);
+};
+
+#endif

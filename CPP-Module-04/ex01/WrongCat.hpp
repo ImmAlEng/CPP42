@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 22:22:04 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:37 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/28 22:20:49 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/28 22:36:04 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-int main()
+#include "WrongAnimal.hpp"
+#pragma once
+
+class WrongCat : public WrongAnimal
 {
-    const Animal *Cats_Dogs[100];
-    for (int i = 0; i < 100; i++)
-    {
-        if (i < 50)
-            Cats_Dogs[i] = new Cat();
-        else
-            Cats_Dogs[i] = new Dog();
-    }
-    for (int i = 0; i < 100; i++)
-        delete Cats_Dogs[i];
-    // const Animal Default; //Animal class is now abstract
-}
+public:
+    WrongCat(void);
+    ~WrongCat();
+    WrongCat(WrongCat const &copy);
+
+    WrongCat &operator=(WrongCat const &copy);
+    void makeSound(void);
+};
+
+#endif

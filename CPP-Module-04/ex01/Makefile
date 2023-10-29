@@ -3,18 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/12 16:28:13 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/29 00:32:42 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	main.cpp
+SRC =	main.cpp		\
+		Animal.cpp		\
+		WrongAnimal.cpp \
+		Cat.cpp			\
+		WrongCat.cpp	\
+		Dog.cpp			\
+		Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = fire
+NAME = virtual_deconstructor
 
 CXX = c++
 

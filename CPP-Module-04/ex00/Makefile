@@ -3,14 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/12 16:28:09 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/28 22:41:43 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	main.cpp
+SRC =	main.cpp		\
+		Animal.cpp		\
+		WrongAnimal.cpp \
+		Cat.cpp			\
+		WrongCat.cpp	\
+		Dog.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

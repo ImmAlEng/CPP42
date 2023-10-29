@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 22:22:04 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:37 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/12 16:30:39 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/29 00:35:04 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-int main()
+#include <iostream>
+
+#pragma once
+
+class Animal
 {
-    const Animal *Cats_Dogs[100];
-    for (int i = 0; i < 100; i++)
-    {
-        if (i < 50)
-            Cats_Dogs[i] = new Cat();
-        else
-            Cats_Dogs[i] = new Dog();
-    }
-    for (int i = 0; i < 100; i++)
-        delete Cats_Dogs[i];
-    // const Animal Default; //Animal class is now abstract
-}
+protected:
+    std::string type;
+
+public:
+    Animal(void);
+    Animal(std::string type);
+    Animal(Animal const &copy);
+    virtual ~Animal();
+
+    Animal &operator=(Animal const &copy);
+    const std::string getType(void) const;
+    virtual void makeSound(void)const = 0;
+};
+
+#endif
