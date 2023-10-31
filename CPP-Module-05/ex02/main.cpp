@@ -6,47 +6,50 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:18:02 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/30 13:20:32 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/31 02:10:58 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat b1("b1", 2);
-        std::cout << b1 << std::endl;
+        Bureaucrat bureaucrat("John", 1); // Highest grade bureaucrat
+        ShrubberyCreationForm shrubberyForm("Garden");
+        PresidentialPardonForm presidentialForm("John Doe");
+        RobotomyRequestForm robotomyForm("RoboTarget");
 
-        Form f1("f1", 10, 100);
-        std::cout << f1 << std::endl;
+        std::cout << bureaucrat << std::endl;
+        std::cout << shrubberyForm << std::endl;
+        std::cout << presidentialForm << std::endl;
+        std::cout << robotomyForm << std::endl;
 
-        f1.beSigned(b1);
-        std::cout << f1 << std::endl;
-    
-        Form f2("f2", 1, 5);
-        std::cout << f2 << std::endl;
+        std::cout << "----- Testing the ShrubberyCreationForm -----" << std::endl;
+        bureaucrat.signAForm(shrubberyForm);
+        shrubberyForm.execute(bureaucrat);
 
-        f2.beSigned(b1); // Exceptions
-        std::cout << f2 << std::endl;
+        std::cout << "----- Testing the PresidentialPardonForm -----" << std::endl;
+        bureaucrat.signAForm(presidentialForm);
+        presidentialForm.execute(bureaucrat);
+
+        std::cout << "----- Testing the RobotomyRequestForm -----" << std::endl;
+        bureaucrat.signAForm(robotomyForm);
+        bureaucrat.executeForm(robotomyForm);
+
+        // Testing exceptions
+
+        Bureaucrat badBureaucrat("Bad Guy", 150); // Lowest grade bureaucrat
+        badBureaucrat.signAForm(shrubberyForm); // This should throw a GradeTooLowException
     }
-    catch (const std::exception &e)
+    catch (std::exception &e)
     {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
-    Bureaucrat b2("b2", 3);
-    Form f3("f3", 5, 8);
-    std::cout << f3 << std::endl;
-
-    b2.signForm(f3);
-    std::cout << f3 << std::endl;
-
-    Form f4("f4", 2, 8);
-    std::cout << f4 << std::endl;
-
-    b2.signForm(f4);
-    std::cout << f4 << std::endl;
-    return (0);
+    return 0;
 }

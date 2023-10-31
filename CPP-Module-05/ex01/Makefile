@@ -6,7 +6,7 @@
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/30 13:21:24 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/30 11:09:36 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC =	main.cpp		\
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = forms
+NAME = interfaces
 
 CXX = c++
 
