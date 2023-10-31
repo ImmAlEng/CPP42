@@ -6,17 +6,21 @@
 #    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/31 19:15:22 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/31 19:15:44 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	main.cpp		\
-		Bureaucrat.cpp	\
-		Form.cpp
+SRC =	main.cpp					\
+		Bureaucrat.cpp				\
+		AForm.cpp					\
+		ShrubberyCreationForm.cpp	\
+		PresidentialPardonForm.cpp	\
+		RobotomyRequestForm.cpp		\
+		Intern.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = papers
+NAME = intern
 
 CXX = c++
 

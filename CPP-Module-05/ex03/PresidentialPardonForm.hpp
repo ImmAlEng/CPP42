@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 23:18:03 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/31 19:17:09 by iengels          ###   ########.fr       */
+/*   Created: 2023/10/30 23:17:22 by iengels           #+#    #+#             */
+/*   Updated: 2023/10/31 18:56:29 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <cstdlib>
 #pragma once
 
-class RobotomyRequestForm : public AForm
+class PresidentialPardonForm : public AForm
 {
     private:
         std::string target;
         
     public:
-        RobotomyRequestForm(void);
-        RobotomyRequestForm(const std::string &target);
-        RobotomyRequestForm(RobotomyRequestForm const &copy);
-        ~RobotomyRequestForm();
+        PresidentialPardonForm(void);
+        PresidentialPardonForm(const std::string &target);
+        PresidentialPardonForm(PresidentialPardonForm const &copy);
+        ~PresidentialPardonForm();
 
-        RobotomyRequestForm const &operator=(RobotomyRequestForm const &copy);
+        PresidentialPardonForm const &operator=(PresidentialPardonForm const &copy);
 
         void execute_ok(void) const;
 };
