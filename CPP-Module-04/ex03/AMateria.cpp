@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:42:56 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 11:38:15 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/29 13:33:37 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,15 @@ AMateria &AMateria::operator=(AMateria const &copy)
     if (this != &copy)
         type = copy.type;
     return *this;
+}
+
+std::string const& AMateria::getType(void) const
+{
+    return (type);
+}
+
+void AMateria::use(ICharacter &target)
+{
+    (void)target;
+    std::cout << "Using default AMateria" << std::endl;
 }

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:55:42 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 11:32:41 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/29 15:52:31 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice(void) :AMateria("ice")
 {
@@ -33,4 +34,14 @@ Ice& Ice::operator=(Ice const &copy)
     std::cout << "Ice assignment operator called" << std::endl;
     AMateria::operator=(copy);
     return *this;
+}
+
+AMateria* Ice::clone() const
+{
+    return (new Ice(*this));
+}
+
+void Ice::use(ICharacter &target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

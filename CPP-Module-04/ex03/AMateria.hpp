@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:42:13 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 10:49:36 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/29 15:46:49 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include "ICharacter.hpp"
+
+class ICharacter;
 
 #pragma once
 
@@ -25,11 +26,12 @@ class AMateria
     public:
         AMateria(void);
         AMateria(std::string const &type);
+        AMateria(AMateria const &copy);
         virtual ~AMateria();
         
         AMateria& operator =(AMateria const &copy);
 
-        std::string const &getType() const; // Returns the materia type
+        std::string const &getType(void) const;
         virtual AMateria *clone() const = 0;
         virtual void use(ICharacter &target);
 };
