@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:43:38 by iengels           #+#    #+#              #
-#    Updated: 2023/10/29 21:21:52 by iengels          ###   ########.fr        #
+#    Updated: 2023/10/31 19:15:25 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC =	main.cpp		\
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = interfaces
+NAME = Bureaucrat
 
 CXX = c++
 

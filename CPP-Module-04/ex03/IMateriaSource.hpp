@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:52:25 by iengels           #+#    #+#             */
-/*   Updated: 2023/10/29 10:52:56 by iengels          ###   ########.fr       */
+/*   Updated: 2023/10/29 14:11:47 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@
 class IMateriaSource
 {
     public:
-        IMateriaSource(void);
-        IMateriaSource(IMateriaSource const &copy);
-        virtual ~IMateriaSource();
-        
-        IMateriaSource& operator= (IMateriaSource const &copy);
-        
+        virtual ~IMateriaSource() {}
         virtual void learnMateria(AMateria*) = 0;
         virtual AMateria* createMateria(std::string const & type) = 0;
 };
