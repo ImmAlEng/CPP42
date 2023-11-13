@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 00:17:09 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/13 00:51:00 by iengels          ###   ########.fr       */
+/*   Created: 2023/11/13 00:21:45 by iengels           #+#    #+#             */
+/*   Updated: 2023/11/13 01:55:51 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
 #pragma once
 
 template <typename T>
-void swap(T &a, T &b)
+void iter(T *array, int length, void (*function)(T const &))
 {
-    T temp = a;
-    a = b;
-    b = temp;
+    if (!array || !function || length <= 0)
+        return;
+    for (int i = 0; i < length; i++)
+        function(array[i]);
 }
 
 template <typename T>
-const T min(const T &a, const T &b)
+void print(T const &x)
 {
-    return (a < b ? a : b);
-}
-
-template <typename T>
-const T max(const T &a, const T &b)
-{
-    return (a > b ? a : b);
+    std::cout << x << std::endl;
 }
 
 #endif
