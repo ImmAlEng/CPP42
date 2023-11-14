@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:11:14 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/14 17:48:12 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/14 18:34:08 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,9 @@ static bool isFloat(t_scalar *s)
 {
     int i = 0;
     bool dot = false;
-    while (s->literal[i + 1])
+    if (s->literal.empty() || s->literal[0] == '\0')
+        return false;
+    while (s->literal[i] && s->literal[i + 1])
     {
         if (i == 0 && (s->literal[i] == '+' || s->literal[i] == '-'))
             i++;
@@ -241,9 +243,24 @@ static bool setType(t_scalar *s)
     return (false);
 }
 
+static void init_struct(t_scalar *s)
+{
+    s->literal = "ok";
+    s->literal = "ok";
+    s->t_char = 0;
+    s->t_double = 0;
+    s->t_float = 0;
+    s->t_int = 0;
+    s->no_literal = 0;
+    s->no_int = 0;
+    s->no_char = 0;
+    s->no_print = 0;
+}
+
 void ScalarConverter::convert(std::string literal)
 {
     t_scalar s;
+    init_struct(&s);
     s.literal = trunctzeros(literal);
     if (setType(&s))
     {
