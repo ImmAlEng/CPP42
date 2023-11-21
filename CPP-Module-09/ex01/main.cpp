@@ -5,28 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 14:41:34 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/16 20:13:39 by iengels          ###   ########.fr       */
+/*   Created: 2023/11/16 20:23:02 by iengels           #+#    #+#             */
+/*   Updated: 2023/11/16 20:26:59 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 int main(int ac, char **av)
 {
     if (ac != 2)
     {
-        std::cout << "Usage: ./btc <filename>!" << std::endl;
-        return 1;
+        std::cout << "Error: Invalid number of arguments" << std::endl;
+        return (1);
     }
-    try
+    try 
     {
-        BitcoinExchange btc("data.csv", av[1]);
-        std::cout << btc;
+        ft_rpn(av[1]);
     }
     catch (std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "Error: " << e.what() << std::endl;
+        return (1);
     }
-    return 0;
+    return (0);
 }

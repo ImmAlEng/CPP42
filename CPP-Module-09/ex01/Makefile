@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/15 21:52:21 by iengels           #+#    #+#              #
-#    Updated: 2023/11/16 15:35:43 by iengels          ###   ########.fr        #
+#    Created: 2023/11/16 20:19:45 by iengels           #+#    #+#              #
+#    Updated: 2023/11/17 17:41:55 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	main.cpp	\
-		BitcoinExchange.cpp
+		RPN.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = btc
+NAME = RPN
 
 CXX = c++
 
@@ -26,7 +26,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-main.o: main.cpp BitcoinExchange.hpp
+main.o: main.cpp RPN.hpp
 
 clean:
 	rm -rf $(OBJ)
