@@ -2,7 +2,8 @@
 
 Span::Span(unsigned int n) : n(n)
 {
-    s.reserve(n);
+    // s.reserve(n);
+
     std::cout << "Type Span constructor called - Span Created" << std::endl;
 }
 
@@ -12,10 +13,7 @@ Span::Span(const Span &copy) : n(copy.n)
     *this = copy;
 }
 
-Span::~Span()
-{
-    std::cout << "Default Span deconstructor called - Span Destroyed" << std::endl;
-}
+Span::~Span() { std::cout << "Default Span deconstructor called - Span Destroyed" << std::endl; }
 
 Span &Span::operator=(const Span &copy)
 {
@@ -27,10 +25,7 @@ Span &Span::operator=(const Span &copy)
     }
     return *this;
 }
-std::vector<int> Span::getS() const
-{
-    return s;
-}
+std::vector< int > Span::getS() const { return s; }
 
 void Span::addNumber(int n)
 {
@@ -64,21 +59,22 @@ void Span::fill_random(int n)
         s.push_back(rand());
 }
 
-unsigned int Span::getN() const
-{
-    return n;
-}
+unsigned int Span::getN() const { return n; }
 
 int Span::shortestSpan() const
 {
     if (s.size() < 2)
         throw std::exception();
-    std::vector<int> copy(s);
+    std::vector< int > copy(s);
+
     std::sort(copy.begin(), copy.end());
-    int shortest = copy[1] - copy[0];
-    for (unsigned int i = 2; i < copy.size(); i++)
-        if (copy[i] - copy[i - 1] < shortest)
-            shortest = copy[i] - copy[i - 1];
+    int shortest = std::abs(copy[1] - copy[0]);
+    for (unsigned int i = 1; i < copy.size(); i++)
+    {
+        int diff = std::abs(copy[i] - copy[i - 1]);
+        if (diff < shortest)
+            shortest = diff;
+    }
     return shortest;
 }
 
@@ -86,12 +82,9 @@ int Span::longestSpan() const
 {
     if (s.size() < 2)
         throw std::exception();
-    std::vector<int> copy(s);
+    std::vector< int > copy(s);
     std::sort(copy.begin(), copy.end());
-    return copy[copy.size() - 1] - copy[0];
+    return std::abs(copy[copy.size() - 1] - copy[0]);
 }
 
-const char *Span::NotEnoughMemory::what() const throw()
-{
-    return "Not enough memory to instantiate Span of this size";
-}
+const char *Span::NotEnoughMemory::what() const throw() { return "Not enough memory to instantiate Span of this size"; }
