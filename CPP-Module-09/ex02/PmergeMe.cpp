@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:44:38 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/22 20:04:55 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/22 22:04:50 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,18 +379,18 @@ bool ft_pMergeMe(std::vector< size_t > input)
         ft_ford_johnson_deq(deq);
         clock_t end = clock();
         ft_print_deque((const std::deque< std::deque< size_t > >)deq, "After");
-        deq.clear();
         std::cout << "Comparisons: " << deque_compare(0, 0, true) << std::endl << std::endl;
-        std::cout << std::fixed << "Time to process a range of 3000 elements with std::deque< std::deque<size_t>> : " << ((double)(end - start) / CLOCKS_PER_SEC) << " us" << std::endl;
+        std::cout << std::fixed << "Time to process a range of " << deq.size() << " elements with std::deque< std::deque<size_t>> : " << ((double)(end - start) / CLOCKS_PER_SEC) << " us" << std::endl;
+        deq.clear();
         start = clock();
         std::vector< std::vector< size_t > > vec = ft_create_vector(input);
         ft_print_vector((const std::vector< std::vector< size_t > >)vec, "Vector before");
         ft_ford_johnson_vec(vec);
         end = clock();
         ft_print_vector((const std::vector< std::vector< size_t > >)vec, "After");
-        vec.clear();
         std::cout << "Comparisons: " << vector_compare(0, 0, true) << std::endl;
-        std::cout << std::fixed << "Time to process a range of 3000 elements with std::deque< std::vector<size_t>> : " << ((double)(end - start) / CLOCKS_PER_SEC) << " us" << std::endl;
+        std::cout << std::fixed << "Time to process a range " << vec.size() << " elements with std::vector< std::vector<size_t>> : " << ((double)(end - start) / CLOCKS_PER_SEC) << " us" << std::endl;
+        vec.clear();
         return true;
     }
     catch (std::exception &e)

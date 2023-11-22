@@ -6,14 +6,14 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:55:31 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/20 23:24:19 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/22 22:26:14 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -31,7 +31,8 @@ int main(void)
     int n = 0;
 
     std::getline(file, input, '\n');
-
+    if (input.empty())
+        return 0;
     std::getline(file, input, '\n');
 
     input = input.substr(6, input.size() - 6);
@@ -57,6 +58,7 @@ int main(void)
         }
     }
     std::getline(file, input, '\n');
+
     int compare = 0;
     for (int i = 0; i < input.size(); i++)
     {
@@ -68,16 +70,73 @@ int main(void)
                 compare += input[i] - '0';
                 i++;
             }
-            vec.push_back(n);
         }
     }
-    std::cout << (std::is_sorted(vec.begin(), vec.end()) ? "\033[32mSorted? Yes" : "\033[31mSorted? No") << RESET << std::endl;
+    std::cout << (std::is_sorted(vec.begin(), vec.end()) ? "\033[32mSorted? Yes" : "\033[31mSorted? No") << RESET
+              << std::endl;
     if (vec.size() > 21)
     {
-        return (0);
+        ;
     }
-    if (compare <= array[vec.size() - 1])
+    else if (compare <= array[vec.size()])
+    {
         std::cout << GREEN << "Comparisons: " << compare << RESET << std::endl;
+    
+    }
+    else
+        std::cout << RED << "Comparisons: " << compare << RESET << std::endl;
+    vec.clear();
+    std::getline(file, input, '\n');
+    std::getline(file, input, '\n');
+    std::getline(file, input, '\n');
+
+    std::getline(file, input, '\n');
+    input = input.substr(6, input.size() - 6);
+    for (int i = 0; i < input.size(); i++)
+    {
+        if (input[i] == ' ' || input[i] == ',')
+            continue;
+        else if (isdigit(input[i]))
+        {
+            n = 0;
+            while (isdigit(input[i]))
+            {
+                n = n * 10;
+                n += input[i] - '0';
+                i++;
+            }
+            vec.push_back(n);
+        }
+        else
+        {
+            std::cout << "Invalid input" << std::endl;
+            return (false);
+        }
+    }
+    std::getline(file, input, '\n');
+    compare = 0;
+    for (int i = 0; i < input.size(); i++)
+    {
+        if (isdigit(input[i]))
+        {
+            while (isdigit(input[i]))
+            {
+                compare = compare * 10;
+                compare += input[i] - '0';
+                i++;
+            }
+        }
+    }
+    std::cout << (std::is_sorted(vec.begin(), vec.end()) ? "\033[32mSorted? Yes" : "\033[31mSorted? No") << RESET
+              << std::endl;
+    if (vec.size() > 21)
+    {
+        ;
+    }
+    else if (compare <= array[vec.size()])
+    {
+        std::cout << GREEN << "Comparisons: " << compare << RESET << std::endl;
+    }
     else
         std::cout << RED << "Comparisons: " << compare << RESET << std::endl;
     return 0;
