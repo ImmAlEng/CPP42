@@ -6,7 +6,7 @@
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:34:35 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/17 17:44:26 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/21 19:47:12 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #include <algorithm>
 #include <limits>
 #include <climits>
-#include <vector>
+#include <list>
 
 #pragma once
 
@@ -30,7 +30,7 @@ class BitcoinExchange
 {
     private:
         std::map<std::string, float> data;
-        std::vector<std::string> input;
+        std::list<std::string> input;
         std::string output;
         BitcoinExchange();
 
@@ -45,7 +45,7 @@ class BitcoinExchange
         void getInput(std::ifstream &inputfile);
 
         const std::map<std::string, float> getDataMap(void) const;
-        const std::vector<std::string> getInputMap(void) const;
+        const std::list<std::string> getInputMap(void) const;
         const std::string getOutput(void) const;
 
         bool ft_validate_rate(std::string exchange);

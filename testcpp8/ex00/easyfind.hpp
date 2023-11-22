@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 20:23:02 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/22 15:58:12 by iengels          ###   ########.fr       */
+/*   Created: 2023/11/13 12:31:57 by iengels           #+#    #+#             */
+/*   Updated: 2023/11/21 14:28:57 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <deque>
+
+template <typename T>
+const typename T::const_iterator easyfind(const T &container, int n)
 {
-    if (ac != 2)
-    {
-        std::cout << "Error: Invalid number of arguments" << std::endl;
-        return (1);
-    }
-    try
-    {
-        ft_rpn(av[1]);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
-        return (1);
-    }
-    return (0);
+    typename T::const_iterator it = std::find(container.begin(), container.end(), n);
+    if (it == container.end())
+        throw std::exception();
+    return it;
 }
+
+#endif
