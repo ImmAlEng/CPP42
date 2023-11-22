@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 20:23:02 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/21 14:20:50 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/22 19:23:02 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,18 @@ bool input_check_duplicates(std::vector< size_t > const &vect)
 
 bool input_sorted(std::vector< size_t > const &vect)
 {
-    for (size_t i = 0; i < vect.size() - 1; i++)
+    size_t i = 0;
+    if (vect.empty() || vect.size() == 1)
+        return false;
+    for (; i < vect.size() - 1; i++)
     {
-        if (vect[i] > vect[i + 1])
-        {
-            std::cout << "Input is not sorted" << std::endl;
-            return (false);
-        }
+        if (vect[i] < vect[i + 1])
+            continue;
+        else
+            break;
     }
+    if (i == vect.size() - 1)
+        return false;
     std::vector< size_t > dups = vect;
     std::sort(dups.begin(), dups.end());
     if (input_check_duplicates(dups))
@@ -144,8 +148,8 @@ int main(int ac, char **av)
             }
             if (!create_input_from_arg(vect, input))
                 return 1;
-            if (input_sorted(vect))
-                return (1);
+            if (!input_sorted(vect))
+                return (0);
         }
     }
     catch (std::exception &e)

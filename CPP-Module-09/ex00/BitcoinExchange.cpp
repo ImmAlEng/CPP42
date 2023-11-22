@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:49:12 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/22 15:54:27 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/22 19:41:57 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <cstddef>
 
 BitcoinExchange::BitcoinExchange(std::string const &data_f, std::string const &input_f)
 {
@@ -87,6 +88,22 @@ void BitcoinExchange::getInput(std::ifstream &inputfile)
     }
 }
 
+bool ft_NaN(std::string str)
+{
+    bool dot = false;
+    for (size_t i = 0; i < str.size(); i++)
+    {
+        if (!dot && str[i] == '.')
+        {
+            dot = true;
+            continue;
+        }
+        if (!std::isdigit(str[i]))
+            return true;
+    }
+    return false;
+}
+
 static double get_bitcoin(std::string const &input)
 {
     std::string str = input;
@@ -98,8 +115,8 @@ static double get_bitcoin(std::string const &input)
     end = str.find_last_not_of(" \t");
     if (begin != std::string::npos || end != std::string::npos || end != begin)
         str = str.substr(begin, end - begin + 1);
-    if (str.length() == 0)
-        return -1;
+    if (str.empty() || ft_NaN(str))
+        return (10000);
     char *endptr;
     double i = std::strtod(str.c_str(), &endptr);
     if (*endptr != '\0')
@@ -171,10 +188,12 @@ void BitcoinExchange::setOutput(void)
         else
             ss << std::fixed << date << " => ";
         double i = get_bitcoin(*it);
-        if (i < 0 || i > INT_MAX)
+        if (i < 0 || i > INT_MAX || i == 10000)
         {
             if (i < 0)
                 ss << "Error: Negativ" << std::endl;
+            else if (i == 10000)
+                ss << "Number not valid" << std::endl;
             else
                 ss << "Error: Number too big" << std::endl;
             continue;
@@ -255,7 +274,7 @@ bool BitcoinExchange::ft_validate_rate(std::string exchange)
     for (unsigned int i = 0; i < exchange.length(); i++)
     {
         if (i == 0 && exchange[i] == '+')
-            ;
+            continue;
         else if (exchange[i] == '.')
         {
             if (dot)

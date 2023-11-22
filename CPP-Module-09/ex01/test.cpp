@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 20:23:02 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/22 17:44:09 by iengels          ###   ########.fr       */
+/*   Created: 2023/11/22 18:00:07 by iengels           #+#    #+#             */
+/*   Updated: 2023/11/22 18:08:49 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-int main(int ac, char **av)
+int main ()
 {
-    if (ac != 2)
-    {
-        std::cout << "Error: Invalid number of arguments" << std::endl;
-        return (1);
-    }
-    try
-    {
-        ft_rpn(av[1]);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
-        return (1);
-    }
-    return (0);
+    std::cout << sizeof(int) << " " << sizeof(long) << std::endl;
+    std::cout << (std::numeric_limits< int >::max() * 2) << std::endl;
+    return 0;
 }

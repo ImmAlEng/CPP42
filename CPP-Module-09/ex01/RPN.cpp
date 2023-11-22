@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 20:22:59 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/17 17:02:50 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/22 18:40:20 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,18 @@ static void check_input(std::string input)
     }
 }
 
-void ft_check_over_underflow(int a, int b, char c)
+void ft_check_over_underflow(int b, int a, char c)
 {
-    if (c == '+' && (a + b) > INT_MAX)
+    if (b == 0 || a == 0)
+            return;
+    if (c == '+' && (b > 0 && a > std::numeric_limits<int>::max() - b))
         throw RPN_IntegerOverflow();
-    else if (c == '-' && (a - b) > INT_MAX)
+    else if (c == '-' && (b > 0 && a < std::numeric_limits<int>::min() + b))
         throw RPN_IntegerOverflow();
-    else if (c == '*' && (a * b) > INT_MAX)
-        throw RPN_IntegerOverflow();
-    else if (c == '/' && (a / b) > INT_MAX)
-        throw RPN_IntegerOverflow();
-    else if (c == '+' && (a + b) < INT_MIN)
-        throw RPN_IntegerOverflow();
-    else if (c == '-' && (a - b) < INT_MIN)
-        throw RPN_IntegerOverflow();
-    else if (c == '*' && (a * b) < INT_MIN)
-        throw RPN_IntegerOverflow();
-    else if (c == '/' && (a / b) < INT_MIN)
+    else if (c == '*' && ((a > 0 && b > 0 && a > std::numeric_limits<int>::max() / b) ||
+                          (a < 0 && b > 0 && a < std::numeric_limits<int>::min() / b) ||
+                          (a > 0 && b < 0 && b < std::numeric_limits<int>::min() / a) ||
+                          (a < 0 && b < 0 && a < std::numeric_limits<int>::max() / b)))
         throw RPN_IntegerOverflow();
 }
 
@@ -95,7 +90,10 @@ void ft_rpn(std::string input)
             {
                 if (a == 0)
                     throw RPN_DivideByZero();
-                stack.push(b / a);
+                if (b == 0)
+                    stack.push(0);
+                else
+                    stack.push(b / a);
             }
         }
     }

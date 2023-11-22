@@ -3,7 +3,6 @@
 Span::Span(unsigned int n) : n(n)
 {
     // s.reserve(n);
-
     std::cout << "Type Span constructor called - Span Created" << std::endl;
 }
 

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: iengels <iengels@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:44:38 by iengels           #+#    #+#             */
-/*   Updated: 2023/11/21 14:26:21 by iengels          ###   ########.fr       */
+/*   Updated: 2023/11/22 20:04:55 by iengels          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <cstddef>
 #include <iostream>
+#include <ostream>
 #include <vector>
 
 // static functions
@@ -340,7 +341,7 @@ void ft_ford_johnson_deq(std::deque< std::deque< size_t > > &deq)
         deq.pop_back();
     }
     deque_merge_pairs(deq);
-    if (!deque_sorted(deq))
+    if (deq.size() != 1)
         ft_ford_johnson_deq(deq);
     std::deque< std::deque< size_t > > deq2 = ft_deque_retrieve_lower_bound(deq);
     if (odd)
@@ -360,7 +361,7 @@ void ft_ford_johnson_vec(std::vector< std::vector< size_t > > &vec)
         vec.pop_back();
     }
     vector_merge_pairs(vec);
-    if (!vector_sorted(vec))
+    if (vec.size() != 1)
         ft_ford_johnson_vec(vec);
     std::vector< std::vector< size_t > > vec2 = ft_vector_retrieve_lower_bound(vec);
     if (odd)
@@ -372,18 +373,24 @@ bool ft_pMergeMe(std::vector< size_t > input)
 {
     try
     {
-        // std::deque< std::deque< size_t > > deq = ft_create_deque(input);
-        // ft_print_deque((const std::deque< std::deque< size_t > >)deq, "Before");
-        // ft_ford_johnson_deq(deq);
-        // ft_print_deque((const std::deque< std::deque< size_t > >)deq, "After");
-        // deq.clear();
-        // std::cout << "Comparisons: " << deque_compare(0, 0, true) << std::endl;
+        clock_t start = clock();
+        std::deque< std::deque< size_t > > deq = ft_create_deque(input);
+        ft_print_deque((const std::deque< std::deque< size_t > >)deq, "Deque before");
+        ft_ford_johnson_deq(deq);
+        clock_t end = clock();
+        ft_print_deque((const std::deque< std::deque< size_t > >)deq, "After");
+        deq.clear();
+        std::cout << "Comparisons: " << deque_compare(0, 0, true) << std::endl << std::endl;
+        std::cout << std::fixed << "Time to process a range of 3000 elements with std::deque< std::deque<size_t>> : " << ((double)(end - start) / CLOCKS_PER_SEC) << " us" << std::endl;
+        start = clock();
         std::vector< std::vector< size_t > > vec = ft_create_vector(input);
-        ft_print_vector((const std::vector< std::vector< size_t > >)vec, "Before");
+        ft_print_vector((const std::vector< std::vector< size_t > >)vec, "Vector before");
         ft_ford_johnson_vec(vec);
+        end = clock();
         ft_print_vector((const std::vector< std::vector< size_t > >)vec, "After");
         vec.clear();
         std::cout << "Comparisons: " << vector_compare(0, 0, true) << std::endl;
+        std::cout << std::fixed << "Time to process a range of 3000 elements with std::deque< std::vector<size_t>> : " << ((double)(end - start) / CLOCKS_PER_SEC) << " us" << std::endl;
         return true;
     }
     catch (std::exception &e)

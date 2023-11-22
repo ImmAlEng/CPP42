@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iengels <iengels@student.42vienna.com>     +#+  +:+       +#+         #
+#    By: iengels <iengels@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:19:45 by iengels           #+#    #+#              #
-#    Updated: 2023/11/17 17:41:55 by iengels          ###   ########.fr        #
+#    Updated: 2023/11/22 17:46:19 by iengels          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = RPN
 
 CXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g
 
 all: $(NAME)
 
